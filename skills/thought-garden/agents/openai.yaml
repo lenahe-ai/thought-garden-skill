@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thought Garden"
+  short_description: "Collect ideas and explore threads in your own voice"
+  default_prompt: "Use $thought-garden to build my private thought board and help me explore connections in my own words."
