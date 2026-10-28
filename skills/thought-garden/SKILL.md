@@ -5,6 +5,8 @@ description: Build or maintain a private visual thought garden with quick captur
 
 # Thought Garden
 
+Experimental: a full new-user hosted installation has not yet been verified end to end. Explain the Sites dependency and setup work before promising a working garden.
+
 Create a private place to catch unfinished thoughts, notice patterns and explore ideas in the owner's voice. The included app is an overlay for a fresh Sites Vinext starter, not a standalone hosting or authentication system.
 
 ## Start with the person

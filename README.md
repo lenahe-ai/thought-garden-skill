@@ -1,6 +1,8 @@
-# Thought Garden
+# Thought Garden · Experimental
 
 A reusable agent skill for building a private, visual home for unfinished ideas. Capture a thought, review it, notice connections and explore your own point of view without editing yourself out of it.
+
+**Status: early prototype.** The template has passed a fresh local starter build and basic API checks. A complete new-user hosted setup, sign-in, connector installation, Watch capture and scheduled execution have not yet been verified end to end. Expect some setup with an agent; this is not a one-click app.
 
 Includes a clean app overlay with:
 
@@ -11,13 +13,15 @@ Includes a clean app overlay with:
 - Ask the garden: save a brief such as “Which of my thoughts contradict each other?” and have your assistant explore it.
 - Optional Siri/Apple Watch capture and assistant schedules.
 
+Siri and chat-connector captures enter the review queue. They need human approval before appearing on the board. Manually created board cards are saved directly.
+
 Nothing publishes to social media. There is no bundled model API, background worker or automatic schedule: exploration runs through your assistant, on demand or through a separately configured automation.
 
 ## Install the skill
 
 In Codex, ask:
 
-> Install the thought-garden skill from this repository, path `skills/thought-garden`.
+> Install the skill from https://github.com/lenahe-ai/thought-garden-skill, path `skills/thought-garden`.
 
 Or copy the `skills/thought-garden` folder into your agent's skills directory. In Codex this is normally `~/.codex/skills/thought-garden`. It becomes available on the next turn. Then ask:
 
@@ -36,6 +40,16 @@ Bring your own interests, notes and writing samples. No original user's thoughts
 `skills/thought-garden/SKILL.md` is the entry point. `assets/site-overlay` contains application source and a schema, to layer onto a fresh supported starter. `scripts/install_overlay.py` installs it with checks against overwriting an existing garden. References describe the API and assistant workflows.
 
 For existing gardens, make bounded changes instead of running the installer again. The original app and database are not modified by this repository.
+
+## Verification
+
+Run `python3 tests/test_install_overlay.py` for installer safety checks. After installing the overlay into a disposable local starter, generating/applying its migration and starting it on loopback, run:
+
+```sh
+python3 tests/smoke_capture.py http://127.0.0.1:8791
+```
+
+The smoke check writes fictional test cards to that local database. It rejects non-loopback addresses and never runs against your hosted garden. It verifies that both capture paths preserve their text and enter review, and that the connector returns a review receipt. It does not verify hosted authentication or scheduled assistant behavior.
 
 ## Privacy and contribution
 

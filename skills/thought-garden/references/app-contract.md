@@ -11,6 +11,7 @@ Tables are `cards(id,data)`, `settings(key,value)`, `threads(id,data)` and `asks
 Read the included route handlers for exact limits and validation before writing. All paths are relative to the selected owner's Site.
 
 - `GET /api/cards` → `{cards,initialized}`. Cards have `id,text,title,kind,topic,status,pinned,url,image,date,color` and optional `review`. `status:review` is pending human approval; `board` or legacy missing status is approved.
+- `/mcp` exposes `list_thoughts` and `capture_thought`. Connector captures preserve the submitted text and save with `status:review`; a receipt reports that status. They do not approve themselves.
 - `POST /api/capture` → JSON `{text,capture_id?}`. Saves into review, returning `{saved,id,message}`. A stable capture_id makes retries idempotent. No link preview fetches.
 - `POST /api/cards` saves a complete card; requires same-origin `Origin`. Use it for authorized human edits, not assistant rewrites. `DELETE` is destructive and not part of review.
 - `POST /api/review` accepts `{reviews:[{id,expectedText,expectedTitle,expectedTopic,topic,summary,reason,confidence,relatedTopics}]}`, max25. Expected strings must match latest originals exactly. It preserves original fields and queue status, and skips stale writes atomically. `relatedTopics` max2; confidence high/medium/low.
