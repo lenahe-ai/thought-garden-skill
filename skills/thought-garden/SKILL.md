@@ -34,6 +34,10 @@ Customize `app/pov.ts` and any topic enumeration in `app/mcp/route.ts` together.
 
 Validate a fresh empty board, capture into review, manual approval, voice save, source links, stale-source rejection and a pending-to-answered brief. Verify that original thoughts and feedback survive assistant processing. Build and check mobile layout before publication. Confirm owner-private access: the API relies on Sites dispatch authentication and is unsafe as an unprotected public Worker. Do not share one database between users or publish it publicly without implementing proper per-user authorization.
 
+## Supported drafting
+
+When requested, use the writing room to snapshot a saved thought and prepare an assistant handoff. The owner presses Send; generation is not automatic. Follow the draft version checks in the app contract, leave existing writing intact, and save finished writing to the Voice Library only when the owner explicitly chooses it. References can be original writing, transcripts, email/essay excerpts or attributed style inspiration; their notes and influence weights guide tone, not factual substance.
+
 ## Help the garden grow
 
 Use [the assistant workflows](references/assistant-workflows.md) for semantic review, Threads, daily questions and queued briefs. Run on demand by default. Offer schedules only if the owner wants them and the environment supports them; configure their timezone and frequency explicitly. The app does not run these jobs itself.

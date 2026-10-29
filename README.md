@@ -9,11 +9,14 @@ Includes a clean app overlay with:
 - A visual board, inspiration links, images and a capture review queue.
 - Suggested POV buckets that can be customized.
 - Threads grounded in your original notes, with feedback and private refinements.
-- Your own writing samples as voice references.
+- A writing room linked to captured thoughts, with editable drafts and an assistant handoff.
+- A Voice Library for pasted writing, text/Markdown imports, transcripts, source links and influence notes. Finished drafts can become references by explicit choice.
 - Ask the garden: save a brief such as “Which of my thoughts contradict each other?” and have your assistant explore it.
 - Optional Siri/Apple Watch capture and assistant schedules.
 
 Siri and chat-connector captures enter the review queue. They need human approval before appearing on the board. Manually created board cards are saved directly.
+
+Draft generation uses a prepared assistant request: open it and press Send, then return to load the saved draft. The button does not wake a background agent automatically. Drafts are version-checked so a first-draft response cannot replace human edits.
 
 Nothing publishes to social media. There is no bundled model API, background worker or automatic schedule: exploration runs through your assistant, on demand or through a separately configured automation.
 
